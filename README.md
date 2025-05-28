@@ -1,2 +1,2 @@
 # salom
-salon webside
+salon website
