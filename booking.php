@@ -4,33 +4,37 @@ $user = "root";
 $pass = "";
 $db = "salon_db";
 
-// Create connection
 $conn = new mysqli($host, $user, $pass, $db);
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// Sanitize input to avoid SQL injection
-function clean($data, $conn) {
-    return htmlspecialchars($conn->real_escape_string(trim($data)));
+function clean($data) {
+    return trim($data);
 }
 
-$name = clean($_POST['name'], $conn);
-$phone = clean($_POST['phone'], $conn);
-$email = clean($_POST['email'], $conn);
-$service = clean($_POST['service'], $conn);
-$date = clean($_POST['date'], $conn);
-$time = clean($_POST['time'], $conn);
-$note = clean($_POST['note'] ?? '', $conn);
+$name = clean($_POST['name']);
+$phone = clean($_POST['phone']);
+$email = clean($_POST['email']);
+$service = clean($_POST['service']);
+$date = clean($_POST['date']);
+$time = clean($_POST['time']);
+$note = clean($_POST['note'] ?? '');
 
-$sql = "INSERT INTO bookings (name, phone, email, service, date, time, note)
-        VALUES ('$name', '$phone', '$email', '$service', '$date', '$time', '$note')";
+if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    die("Invalid email format");
+}
 
-if ($conn->query($sql) === TRUE) {
+$stmt = $conn->prepare("INSERT INTO bookings (name, phone, email, service, date, time, note) VALUES (?, ?, ?, ?, ?, ?, ?)");
+$stmt->bind_param("sssssss", $name, $phone, $email, $service, $date, $time, $note);
+
+if ($stmt->execute()) {
     echo "<script>alert('Thank you, your booking is confirmed!'); window.location.href='booking.html';</script>";
 } else {
-    echo "Error: " . $conn->error;
+    error_log("DB Error: " . $stmt->error);
+    echo "An error occurred while processing your booking.";
 }
 
+$stmt->close();
 $conn->close();
 ?>
