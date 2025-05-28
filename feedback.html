@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Salon Feedback</title>
+  
+  <link rel="stylesheet" href="demo2style.css">
+</head>
+<body>
+ 
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <h1>Welcome to Salon Studio</h1>
+    <p style="color: rgb(232, 246, 245);">Your perfect style, our expert hands</p>
+
+<section class="feedback-section">
+  <h2>We value your feedback 💬</h2>
+  <form id="feedbackForm" action="feedback.php" method="POST" novalidate>
+    <input type="text" name="name" placeholder="Your Name" required>
+    <input type="email" name="email" placeholder="Your Email" required>
+    <select name="rating" required>
+      <option value="">Rate Us</option>
+      <option value="5">⭐⭐⭐⭐⭐ - Excellent</option>
+      <option value="4">⭐⭐⭐⭐ - Good</option>
+      <option value="3">⭐⭐⭐ - Average</option>
+      <option value="2">⭐⭐ - Poor</option>
+      <option value="1">⭐ - Very Bad</option>
+    </select>
+    <textarea name="message" placeholder="Write your feedback..." required></textarea>
+    <button type="submit">Submit Feedback</button>
+  </form>
+</section>
+
+<script src="script.js"></script>
+
+<!-- Show existing feedback -->
+<?php include 'display_feedback.php'; ?>
+<link rel="stylesheet" href="display_feedback.css">
+
+<body>
+
+    
+<!-- Navigation Bar -->
+<nav class="navbar">
+  <div class="nav-container">
+    <div class="logo">💇‍♀ Salon Studio</div>
+    <ul class="nav-links">
+            <li><a href="Mainproject.html" style="color: black;">Home</a></li>
+      <li><a href="booking.html" style="color: black;">Book Now</a></li>
+      <li><a href="feedback.html"style="color: black;">Feedback</a></li>
+  
+    </ul>
+  </div>
+</nav>
+
+
+  </section>
+
+  <footer>
+    <p>&copy;  Salon studio | All Rights Reserved</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Book Now | MySalon</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+ 
+  <link rel="stylesheet" href="demo2style.css">
+   <link rel="stylesheet" href="booking.css"> 
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f0f0;
+      padding: 30px;
+    }
+
+    .form-container {
+      max-width: 500px;
+      margin: auto;
+      background: #fff;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    }
+
+    h2 {
+      text-align: center;
+      color: #d63384;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+
+    button {
+      background: #d63384;
+      color: white;
+      padding: 12px;
+      border: none;
+      width: 100%;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #c2185b;
+    }
+
+    .error {
+      color: red;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <header>
+    <div class="navbar" >
+      <h1>Salon Studio</h1>
+      <nav>
+        <ul>
+          <li><a href="Mainproject.html">Home</a></li>
+         
+        
+          <li><a href="feedback.html">feedback</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <h1>Welcome to Salon Studio</h1>
+    <p style="color: rgb(232, 246, 245);">Your perfect style, our expert hands</p>
+
+
+<section class="offer-section">
+  <h2><i class="fas fa-gift"></i> Special Salon Offers</h2>
+  <div class="offer-grid">
+
+    <!-- New User Offer -->
+    <div class="offer-card">
+      <div class="badge pink">25% OFF</div>
+      <h3><i class="fas fa-user-plus"></i> New User Offer</h3>
+      <p>Enjoy 25% off on your first visit to our salon. Welcome gift from us to you!</p>
+      <span class="price">Use code: <b>WELCOME25</b></span>
+    </div>
+
+    <!-- Refer a Friend Offer -->
+    <div class="offer-card">
+      <div class="badge purple">20% OFF</div>
+      <h3><i class="fas fa-users"></i> Bring a Friend</h3>
+      <p>Refer a friend and both of you get 20% OFF on your services. More friends, more savings!</p>
+      <span class="price">Use code: <b>REFER20</b></span>
+    </div>
+
+    <!-- Today's Deal -->
+    <div class="offer-card special">
+      <div class="badge red">🔥 40% TODAY ONLY</div>
+      <h3><i class="fas fa-bolt"></i> Flash Deal</h3>
+      <p>Get 40% OFF on any service booked today. Hurry, offer ends soon!</p>
+      <span class="price">Use code: <b>FLASH40</b></span>
+      <div id="countdown">Offer ends in: <span id="timer"></span></div>
+    </div>
+
+  </div>
+</section> <br>
+<br>
+<section class="booking-section">
+  <h2>Book Your Salon Appointment</h2>
+  <form id="bookingForm" method="POST" action="booking.php">
+    <input type="text" name="name" placeholder="Your Name" required>
+    <input type="tel" name="phone" placeholder="Phone Number" required pattern="[0-9]{10}">
+    <input type="email" name="email" placeholder="Email" required>
+    <select name="service" required>
+      <option value="">Select Service</option>
+      <option value="Bride Package">Bride Package</option>
+      <option value="Hair Cut">Hair cut</option>
+      <option value="Shave">Shave</option>
+      <option value="Manicure">Manicure</option>
+      <option value="Groom Package">Groom Package</option>
+      <option value="Full Body Massage">Full Body Massage</option>
+    </select>
+    <input type="date" name="date" required>
+    <input type="time" name="time" required>
+    <textarea name="note" placeholder="Any special request..." style="width: fit-content;"></textarea>
+    <button type="submit">Book Now</button>
+  </form>
+</section>
+<!-- Navigation Bar -->
+<nav class="navbar">
+  <div class="nav-container">
+    <div class="logo">💇‍♀ Salon Studio</div>
+    <ul class="nav-links">      <li><a href="Mainproject.html" style="color: black;">Home</a></li>
+
+
+      <li><a href="booking.html" style="color: black;">Book Now</a></li>
+      <li><a href="feedback.html"style="color: black;">Feedback</a></li>
+  
+    </ul>
+  </div>
+</nav>
+  <footer>
+    <p>&copy;  Salon studio | All Rights Reserved</p>
+  </footer>
+
+<script src="script.js"></script>
+</body>
+</html>
